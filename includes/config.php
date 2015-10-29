@@ -4,7 +4,7 @@
 	//----------------------------------------------------------------------------------//
 	
 	/*  Set the URL to your Sendy installation (without the trailing slash) */
-	define('APP_PATH', 'http://mail.rime.co');
+	define('APP_PATH', 'http://sendy.rime.co');
 	
 	/*  MySQL database connection credentials (please place values between the apostrophes) */
 	$dbHost = 'mydbinstance.clisimvndspr.us-west-2.rds.amazonaws.com'; //MySQL Hostname
