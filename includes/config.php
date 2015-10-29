@@ -4,10 +4,10 @@
 	//----------------------------------------------------------------------------------//
 	
 	/*  Set the URL to your Sendy installation (without the trailing slash) */
-	define('APP_PATH', 'http://php-lb-151833250.us-west-2.elb.amazonaws.com');
+	define('APP_PATH', 'http://mail.rime.co');
 	
 	/*  MySQL database connection credentials (please place values between the apostrophes) */
-	$dbHost = 'mydbinstance.clisimvndspr.us-west-2.rds.amazonaws.com:3306'; //MySQL Hostname
+	$dbHost = 'mydbinstance.clisimvndspr.us-west-2.rds.amazonaws.com'; //MySQL Hostname
 	$dbUser = 'awsuser'; //MySQL Username
 	$dbPass = 'mypassword'; //MySQL Password
 	$dbName = 'sendy'; //MySQL Database Name
