@@ -27,6 +27,8 @@ $extension = $extension_explode[count($extension_explode)-1];
 $time = time();
 $allowed = array("jpeg", "jpg", "gif", "png");
 
+$content_type = $_FILES['upload']['type'];
+
 if(in_array($extension, $allowed))
 {
   $awsAccessKey = get_app_info('s3_key');
@@ -36,7 +38,7 @@ if(in_array($extension, $allowed))
   $s3 = new S3($awsAccessKey, $awsSecretKey, false, $endpoint);
   $s3Filename = date('Ymd-His', $time).'.'.$extension;
 
-  if ($s3 -> putObject($s3->inputFile($file), $bucketName, $s3Filename, S3::ACL_PUBLIC_READ))
+  if ($s3 -> putObject($s3->inputFile($file), $bucketName, $s3Filename, S3::ACL_PUBLIC_READ, array(), array('Content-Type' => $content_type)))
   {
     $array = array('filelink' => 'http://'.$endpoint.'/'.$bucketName.'/'.$s3Filename);
     // echo stripslashes(json_encode($array));
@@ -49,7 +51,7 @@ if(in_array($extension, $allowed))
     $langCode = $_GET['langCode'] ;
 
     // Check the $_FILES array and save the file. Assign the correct path to a variable ($url).
-    $url = APP_PATH.'/uploads/'.$time.'.'.$extension;
+    // $url = APP_PATH.'/uploads/'.$time.'.'.$extension;
     $url = 'http://'.$endpoint.'/'.$bucketName.'/'.$s3Filename;
 
     // Usually you will only assign something here if the file could not be uploaded.
@@ -59,7 +61,7 @@ if(in_array($extension, $allowed))
   }
   else
   {
-    die('there was a problem');
+    die('There was a problem');
   }
 }
 else 
