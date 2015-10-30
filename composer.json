@@ -1,0 +1,7 @@
+{
+  "require":
+  {
+    "league/html-to-markdown": "~4.0",
+    "tijsverkoyen/css-to-inline-styles": "1.5.4"
+  }
+}
