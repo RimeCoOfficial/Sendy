@@ -33,7 +33,7 @@ if(in_array($extension, $allowed))
 {
   $awsAccessKey = get_app_info('s3_key');
   $awsSecretKey = get_app_info('s3_secret');
-  $bucketName = 'rime.mail'; //Change accordingly
+  $bucketName = 'rime-sendy'; //Change accordingly
   $endpoint = 's3-us-west-2.amazonaws.com'; //Change accordingly
   $s3 = new S3($awsAccessKey, $awsSecretKey, false, $endpoint);
   $s3Filename = date('Ymd-His', $time).'.'.$extension;
